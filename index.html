@@ -109,14 +109,20 @@ nav{
 
 /* Hero stats strip */
 .hero-stats{
-  position:absolute;bottom:60px;left:6%;
-  display:flex;gap:3rem;
+  display:flex;gap:0;margin-top:3.5rem;
+  border-top:1px solid var(--line);padding-top:2rem;
 }
+.hstat{
+  flex:1;padding-right:2rem;
+  border-right:1px solid var(--line);
+  margin-right:2rem;
+}
+.hstat:last-child{border-right:none;margin-right:0;padding-right:0}
 .hstat-num{
-  font-family:var(--serif);font-size:2.4rem;font-weight:400;
+  font-family:var(--serif);font-size:2.2rem;font-weight:400;
   color:var(--ink);line-height:1;
 }
-.hstat-label{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-top:4px}
+.hstat-label{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-top:5px}
 
 /* Hero right — image */
 .hero-right{position:relative;overflow:hidden}
@@ -456,16 +462,16 @@ footer{background:var(--ink);padding:80px 6% 40px}
       <a href="#services" class="btn-text">Δείτε τις Υπηρεσίες</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="hstat-num">18+</div>
+      <div class="hstat">
+        <div class="hstat-num" data-target="18" data-suffix="+">0</div>
         <div class="hstat-label">Χρόνια εμπειρίας</div>
       </div>
-      <div>
-        <div class="hstat-num">3.200+</div>
+      <div class="hstat">
+        <div class="hstat-num" data-target="3200" data-suffix="+" data-format="dot">0</div>
         <div class="hstat-label">Επεμβάσεις</div>
       </div>
-      <div>
-        <div class="hstat-num">4.9</div>
+      <div class="hstat">
+        <div class="hstat-num" data-target="4.9" data-suffix="" data-decimal="1">0</div>
         <div class="hstat-label">Google Rating</div>
       </div>
     </div>
@@ -828,6 +834,42 @@ const di=document.getElementById('apptDate');if(di)di.min=d.toISOString().split(
 
 // Form submit
 function handleSubmit(e){e.preventDefault();document.getElementById('apptForm').style.display='none';document.getElementById('fSuccess').style.display='block'}
+
+
+// Counter animation
+function animateCounter(el){
+  const target=parseFloat(el.dataset.target);
+  const suffix=el.dataset.suffix||'';
+  const decimal=parseInt(el.dataset.decimal||0);
+  const useDot=el.dataset.format==='dot';
+  const duration=1800;
+  const start=performance.now();
+  function step(now){
+    const progress=Math.min((now-start)/duration,1);
+    const ease=1-Math.pow(1-progress,3);
+    const value=target*ease;
+    let display;
+    if(decimal>0){display=value.toFixed(decimal);}
+    else{
+      const rounded=Math.floor(value);
+      display=useDot?rounded.toLocaleString('el-GR'):String(rounded);
+    }
+    el.textContent=display+suffix;
+    if(progress<1)requestAnimationFrame(step);
+    else el.textContent=(decimal>0?target.toFixed(decimal):(useDot?Math.round(target).toLocaleString('el-GR'):target))+suffix;
+  }
+  requestAnimationFrame(step);
+}
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.hstat-num[data-target]').forEach(animateCounter);
+      counterObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+const statsEl=document.querySelector('.hero-stats');
+if(statsEl)counterObs.observe(statsEl);
 
 // Nav active
 const secs=document.querySelectorAll('section[id]'),nls=document.querySelectorAll('.nav-links a');
