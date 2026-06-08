@@ -54,6 +54,16 @@ nav{
   transition:background 0.3s;
 }
 .nav-cta:hover{background:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:1.2rem}
+.nav-phone{
+  font-family:var(--sans);font-size:0.78rem;font-weight:400;
+  color:var(--ink);text-decoration:none;letter-spacing:0.04em;
+  display:flex;align-items:center;gap:6px;
+  border:1px solid var(--line);padding:8px 14px;
+  transition:border-color 0.2s,color 0.2s;
+}
+.nav-phone:hover{border-color:var(--gold);color:var(--gold)}
+.nav-phone-icon{font-size:0.9rem;color:var(--gold)}
 
 /* ── HERO ── */
 #hero{
@@ -106,6 +116,15 @@ nav{
   transition:color 0.2s,border-color 0.2s;
 }
 .btn-text:hover{color:var(--gold);border-color:var(--gold)}
+.hero-trust{
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;
+  margin-bottom:1.8rem;
+  padding:10px 14px;
+  background:var(--off);border-left:2px solid var(--gold);
+}
+.hero-trust-stars{color:var(--gold);font-size:0.78rem;letter-spacing:2px}
+.hero-trust-text{font-size:0.72rem;color:var(--ink2);font-weight:300;letter-spacing:0.04em}
+.hero-trust-sep{color:var(--ink3);font-size:0.7rem}
 
 /* Hero stats strip */
 .hero-stats{
@@ -152,6 +171,21 @@ nav{
   position:absolute;top:0;right:0;width:1px;height:100%;
   background:linear-gradient(180deg,transparent,var(--line) 30%,var(--line) 70%,transparent);
 }
+
+/* ── PROOF BAR ── */
+.proof-bar{
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:0;
+  padding:18px 6%;background:var(--off);
+  border-bottom:1px solid var(--line);
+}
+.proof-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:0.75rem;color:var(--ink2);font-weight:300;
+  letter-spacing:0.03em;padding:4px 28px;
+}
+.proof-icon{color:var(--gold);font-size:0.75rem}
+.proof-div{width:1px;height:20px;background:var(--line)}
 
 /* ── MARQUEE STRIP ── */
 .marquee-strip{
@@ -406,6 +440,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
 
 /* ── MOBILE ── */
 @media(max-width:900px){
+  .nav-phone{display:none}
   #hero{grid-template-columns:1fr}
   .hero-right{display:none}
   .hero-stats{position:static;margin-top:3rem;flex-wrap:wrap;gap:2rem}
@@ -418,6 +453,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
   .footer-top{grid-template-columns:1fr;gap:32px}
   .f-row{grid-template-columns:1fr}
   .nav-links{display:none}
+  .nav-right{gap:0.8rem}
   section{padding:80px 6%}
   .svc-item{grid-template-columns:40px 1fr auto;gap:20px}
 }
@@ -441,7 +477,13 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <li><a href="#reviews">Αξιολογήσεις</a></li>
     <li><a href="#contact">Επικοινωνία</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Ραντεβού</a>
+  <div class="nav-right">
+    <a href="tel:+302310441200" class="nav-phone">
+      <span class="nav-phone-icon">↗</span>
+      2310 441 200
+    </a>
+    <a href="#contact" class="nav-cta">Ραντεβού</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -450,16 +492,21 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <div class="hero-line-top"></div>
     <p class="hero-eyebrow">Οφθαλμολογικό Ιατρείο — Θεσσαλονίκη</p>
     <h1 class="hero-title">
-      Η όραση<br>
-      αξίζει<br>
-      <em>εξειδίκευση</em>
+      Βλέπετε θολά;<br>
+      <em>Υπάρχει λύση.</em>
     </h1>
     <p class="hero-body">
-      18 χρόνια κλινικής εμπειρίας στη χειρουργική καταρράκτη, τη θεραπεία γλαυκώματος και τη διαθλαστική χειρουργική. Μία γνώμη, βασισμένη σε επιστήμη.
+      Καταρράκτης, γλαύκωμα, διαθλαστική χειρουργική — σωστή διάγνωση και αποτελεσματική θεραπεία, από εξειδικευμένο χειρουργό με 18 χρόνια εμπειρία και Fellowship στο Moorfields Eye Hospital του Λονδίνου.
     </p>
+    <div class="hero-trust">
+      <span class="hero-trust-stars">★★★★★</span>
+      <span class="hero-trust-text">4.9 · 214 αξιολογήσεις Google</span>
+      <span class="hero-trust-sep">·</span>
+      <span class="hero-trust-text">ΕΟΠΥΥ & Ιδιωτικές Ασφαλίσεις</span>
+    </div>
     <div class="hero-actions">
-      <a href="#contact" class="btn-dark">Κλείστε Ραντεβού</a>
-      <a href="#services" class="btn-text">Δείτε τις Υπηρεσίες</a>
+      <a href="tel:+302310441200" class="btn-dark">↗ 2310 441 200</a>
+      <a href="#contact" class="btn-text">Κλείστε Ραντεβού Online</a>
     </div>
     <div class="hero-stats">
       <div class="hstat">
@@ -505,6 +552,29 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <span>Βυθοσκόπηση & AMD</span><span class="dot">·</span>
     <span>Μέλος ΕΟΕ & ESCRS</span><span class="dot">·</span>
     <span>ΕΟΠΥΥ & Ασφαλιστικά</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-item">
+    <span class="proof-icon">✓</span>
+    <span>Μέλος Ελληνικής Οφθαλμολογικής Εταιρείας</span>
+  </div>
+  <div class="proof-div"></div>
+  <div class="proof-item">
+    <span class="proof-icon">✓</span>
+    <span>Fellowship — Moorfields Eye Hospital, Λονδίνο</span>
+  </div>
+  <div class="proof-div"></div>
+  <div class="proof-item">
+    <span class="proof-icon">✓</span>
+    <span>ΕΟΠΥΥ & 7 Ιδιωτικές Ασφαλίσεις</span>
+  </div>
+  <div class="proof-div"></div>
+  <div class="proof-item">
+    <span class="proof-icon">★</span>
+    <span>4.9/5 · 214 αξιολογήσεις Google</span>
   </div>
 </div>
 
@@ -609,41 +679,41 @@ footer{background:var(--ink);padding:80px 6% 40px}
 
 <!-- EQUIPMENT -->
 <section id="equipment">
-  <p class="s-label reveal">Τεχνολογία</p>
-  <h2 class="s-title reveal reveal-delay-1">Εξοπλισμός<br><em>διεθνών προδιαγραφών</em></h2>
-  <p class="s-sub reveal reveal-delay-2">Η σωστή διάγνωση απαιτεί τα σωστά εργαλεία. Το ιατρείο επενδύει διαρκώς στην πιο σύγχρονη τεχνολογία.</p>
+  <p class="s-label reveal">Τεχνολογία & Φροντίδα</p>
+  <h2 class="s-title reveal reveal-delay-1">Τι σημαίνει για <em>εσάς</em></h2>
+  <p class="s-sub reveal reveal-delay-2">Σύγχρονος εξοπλισμός διεθνών προδιαγραφών — μεταφρασμένος σε απλά λόγια για εσάς.</p>
   <div class="equip-grid">
     <div class="eq-card reveal" data-num="01">
-      <div class="eq-name">OCT Zeiss Cirrus 6000</div>
-      <div class="eq-desc">Τομογραφία οπτικής συνοχής — ανάλυση αμφιβληστροειδούς & νεύρου</div>
+      <div class="eq-name">Διάγνωση σε βάθος</div>
+      <div class="eq-desc">Τομογραφία αμφιβληστροειδούς (OCT) — ανιχνεύουμε προβλήματα χρόνια πριν εμφανιστούν συμπτώματα.</div>
     </div>
     <div class="eq-card reveal reveal-delay-1" data-num="02">
-      <div class="eq-name">Pentacam HR</div>
-      <div class="eq-desc">3D χαρτογράφηση κερατοειδούς για διαθλαστική χειρουργική & κερατόκωνο</div>
+      <div class="eq-name">Ακριβής χαρτογράφηση</div>
+      <div class="eq-desc">3D ανάλυση κερατοειδούς για να ξέρουμε αν είστε κατάλληλος/η για LASIK — χωρίς εκπλήξεις μετά.</div>
     </div>
     <div class="eq-card reveal reveal-delay-2" data-num="03">
-      <div class="eq-name">Excimer VISX Star S4</div>
-      <div class="eq-desc">Laser τελευταίας γενιάς για LASIK & PRK — custom ablation</div>
+      <div class="eq-name">Laser χωρίς νυστέρι</div>
+      <div class="eq-desc">Μόνιμη διόρθωση μυωπίας σε λίγα λεπτά. Επιστροφή στην καθημερινότητα την επόμενη μέρα.</div>
     </div>
     <div class="eq-card reveal reveal-delay-3" data-num="04">
-      <div class="eq-name">IOLMaster 700 Zeiss</div>
-      <div class="eq-desc">Swept-source βιομετρία για ακριβή επιλογή ενδοφακού</div>
+      <div class="eq-name">Ανώδυνη μέτρηση πίεσης</div>
+      <div class="eq-desc">Έλεγχος για γλαύκωμα χωρίς αναισθητικές σταγόνες και χωρίς αέρα — ανώδυνα, σε δευτερόλεπτα.</div>
     </div>
     <div class="eq-card reveal" data-num="05">
-      <div class="eq-name">Haag-Streit Slit Lamp</div>
-      <div class="eq-desc">Βιομικροσκόπιο υψηλής ευκρίνειας, πρόσθιο τμήμα</div>
+      <div class="eq-name">Βυθοσκόπηση χωρίς σταγόνες</div>
+      <div class="eq-desc">Πλήρης φωτογράφηση βυθού 200° χωρίς μυδρίαση — φεύγετε σπίτι αμέσως, χωρίς θολή όραση.</div>
     </div>
     <div class="eq-card reveal reveal-delay-1" data-num="06">
-      <div class="eq-name">Icare ic200</div>
-      <div class="eq-desc">Ανώδυνη τονομετρία χωρίς αναισθητικές σταγόνες</div>
+      <div class="eq-name">Καταρράκτης με ακρίβεια</div>
+      <div class="eq-desc">Βιομετρία τελευταίας γενιάς για επιλογή ιδανικού φακού — αποτέλεσμα που διαρκεί δεκαετίες.</div>
     </div>
     <div class="eq-card reveal reveal-delay-2" data-num="07">
-      <div class="eq-name">YAG Laser</div>
-      <div class="eq-desc">Κάψουλοτομή & ιριδοτομή — θεραπεία γλαυκώματος</div>
+      <div class="eq-name">Laser για γλαύκωμα</div>
+      <div class="eq-desc">Θεραπεία χωρίς χειρουργική τομή — 15 λεπτά επέμβαση, αμέσως στο σπίτι.</div>
     </div>
     <div class="eq-card reveal reveal-delay-3" data-num="08">
-      <div class="eq-name">Optos California</div>
-      <div class="eq-desc">Ευρυγώνια φωτογράφηση βυθού 200° — χωρίς μυδρίαση</div>
+      <div class="eq-name">Πλήρης εξέταση — 1 επίσκεψη</div>
+      <div class="eq-desc">Ό,τι χρειάζεστε γίνεται σε μία επίσκεψη. Δεν χρειάζεται να έρθετε ξανά για επιπλέον εξετάσεις.</div>
     </div>
   </div>
 </section>
