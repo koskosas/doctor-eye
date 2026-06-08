@@ -6,746 +6,790 @@
 <title>Δρ. Σταύρος Παπαδόπουλος — Οφθαλμίατρος Θεσσαλονίκη</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ── RESET & ROOT ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f5f2ee;
+  --navy:#0b1a2e;
+  --navy2:#0f2340;
+  --slate:#1c3252;
   --white:#ffffff;
-  --teal:#1a4a4a;
-  --teal-mid:#245c5c;
-  --teal-light:#2e7070;
-  --gold:#9a7b4f;
-  --gold-light:#b8955a;
-  --ink:#1a1a1a;
-  --ink2:#3d3d3d;
-  --ink3:#7a7a7a;
-  --border:#ddd9d3;
-  --serif:'Lora',Georgia,serif;
+  --off:#f8f9fb;
+  --gold:#b8924a;
+  --gold2:#d4aa6a;
+  --ink:#0d1b2a;
+  --ink2:#2c3e50;
+  --ink3:#6b7a8d;
+  --border:#e4e8ef;
+  --serif:'Playfair Display',Georgia,serif;
   --sans:'Inter',system-ui,sans-serif;
+  --space:6%;
 }
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--bg);overflow-x:hidden;line-height:1.6}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--white);overflow-x:hidden}
 
-/* ─── NAV ─── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  background:rgba(245,242,238,0.97);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  height:68px;display:flex;align-items:center;
-  padding:0 5%;gap:2rem;
+/* ── TOPBAR ── */
+.topbar{
+  background:var(--navy);
+  display:flex;justify-content:center;align-items:center;gap:2.5rem;
+  padding:9px var(--space);flex-wrap:wrap;
 }
-.nav-logo{
-  font-family:var(--serif);font-size:1rem;font-weight:600;
-  color:var(--teal);line-height:1.25;white-space:nowrap;
-}
-.nav-logo span{
-  display:block;font-family:var(--sans);font-weight:300;
-  font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--ink3);font-style:normal;margin-top:2px;
-}
-.nav-links{
-  display:flex;gap:2rem;list-style:none;margin-left:auto;
-}
-.nav-links a{
-  font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;
-  font-weight:400;color:var(--ink3);text-decoration:none;transition:color .2s;
-}
-.nav-links a:hover{color:var(--teal)}
-.nav-phone{
+.topbar-item{
   display:flex;align-items:center;gap:7px;
-  font-size:0.88rem;font-weight:500;color:var(--teal);
-  text-decoration:none;white-space:nowrap;
-  border:1.5px solid var(--teal);padding:8px 16px;
-  transition:all .2s;
+  font-size:0.7rem;letter-spacing:0.07em;
+  color:rgba(255,255,255,0.55);font-weight:300;white-space:nowrap;
 }
-.nav-phone:hover{background:var(--teal);color:var(--white)}
-.nav-phone svg{width:14px;height:14px;flex-shrink:0}
+.topbar-item a{color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s}
+.topbar-item a:hover{color:var(--gold2)}
+.topbar-dot{color:rgba(255,255,255,0.15);font-size:0.5rem}
+.topbar-gold{color:var(--gold2) !important}
 
-/* ─── HERO ─── */
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  height:70px;
+  display:flex;align-items:center;
+  padding:0 var(--space);
+  gap:2rem;
+}
+.nav-brand{
+  font-family:var(--serif);font-size:1.05rem;font-weight:500;
+  color:var(--navy);letter-spacing:0.01em;line-height:1.3;
+  white-space:nowrap;text-decoration:none;
+}
+.nav-brand small{
+  display:block;font-family:var(--sans);font-weight:300;
+  font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--ink3);margin-top:2px;
+}
+.nav-menu{display:flex;gap:2rem;list-style:none;margin-left:auto}
+.nav-menu a{
+  font-size:0.72rem;font-weight:400;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--ink3);
+  text-decoration:none;transition:color .2s;white-space:nowrap;
+}
+.nav-menu a:hover,.nav-menu a.active{color:var(--navy)}
+.nav-divider{width:1px;height:22px;background:var(--border)}
+.nav-tel{
+  display:flex;align-items:center;gap:8px;
+  font-size:0.82rem;font-weight:600;color:var(--navy);
+  text-decoration:none;letter-spacing:0.01em;white-space:nowrap;
+  transition:color .2s;
+}
+.nav-tel:hover{color:var(--gold)}
+.nav-tel-icon{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;flex-shrink:0;
+}
+.nav-tel:hover .nav-tel-icon{background:var(--gold)}
+.nav-tel-icon svg{width:13px;height:13px;fill:white}
+.nav-cta{
+  background:var(--navy);color:var(--white);
+  font-family:var(--sans);font-size:0.7rem;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:10px 22px;text-decoration:none;
+  border:2px solid var(--navy);
+  transition:all .25s;white-space:nowrap;
+}
+.nav-cta:hover{background:transparent;color:var(--navy)}
+
+/* ── HERO ── */
 #hero{
-  position:relative;min-height:100vh;
-  display:flex;align-items:flex-end;
-  padding-top:68px;overflow:hidden;
+  position:relative;
+  height:calc(100vh - 70px);
+  min-height:600px;max-height:900px;
+  overflow:hidden;display:flex;align-items:flex-end;
 }
-.hero-bg{
+.hero-img{
   position:absolute;inset:0;
-  background:#1a2e2e;
+  background:var(--navy2);
 }
-.hero-bg img{
+.hero-img img{
   width:100%;height:100%;object-fit:cover;
-  object-position:center 30%;
-  opacity:0.55;
-  filter:grayscale(15%) contrast(1.05);
-  display:block;
+  object-position:center 25%;display:block;
+  filter:brightness(0.78) saturate(0.9);
 }
-/* warm gradient overlay — focuses eye on text, keeps image breathing */
-.hero-bg::after{
+.hero-img::after{
   content:'';position:absolute;inset:0;
   background:
-    linear-gradient(to top, rgba(20,38,38,0.92) 0%, rgba(20,38,38,0.55) 45%, rgba(20,38,38,0.15) 100%),
-    linear-gradient(to right, rgba(20,38,38,0.3) 0%, transparent 60%);
+    linear-gradient(to top,  rgba(11,26,46,0.96) 0%, rgba(11,26,46,0.6) 38%, rgba(11,26,46,0.1) 75%),
+    linear-gradient(to right, rgba(11,26,46,0.45) 0%, transparent 55%);
 }
-.hero-content{
+.hero-inner{
   position:relative;z-index:2;
-  width:100%;padding:6vh 5% 8vh;
-  display:grid;grid-template-columns:1fr auto;
-  align-items:flex-end;gap:3rem;
+  width:100%;padding:0 var(--space) 72px;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:3rem;
 }
-.hero-text{}
-.hero-kicker{
+.hero-text{max-width:620px}
+.hero-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
-  font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
-  color:rgba(255,255,255,0.6);margin-bottom:1.5rem;font-weight:400;
+  font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold2);font-weight:400;margin-bottom:1.4rem;
 }
-.hero-kicker::before{content:'';display:block;width:24px;height:1px;background:var(--gold-light)}
-.hero-h1{
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold2)}
+h1{
   font-family:var(--serif);
-  font-size:clamp(2.4rem,5vw,4.8rem);
+  font-size:clamp(2.6rem,4.8vw,5rem);
   font-weight:400;color:var(--white);
-  line-height:1.1;letter-spacing:-0.01em;
+  line-height:1.08;letter-spacing:-0.015em;
   margin-bottom:1.4rem;
 }
-.hero-h1 em{font-style:italic;color:var(--gold-light)}
-.hero-sub{
-  font-size:1rem;color:rgba(255,255,255,0.7);
-  line-height:1.75;max-width:500px;
-  margin-bottom:2.5rem;font-weight:300;
+h1 em{font-style:italic;color:var(--gold2)}
+.hero-lead{
+  font-size:1rem;color:rgba(255,255,255,0.68);
+  line-height:1.8;margin-bottom:2.2rem;font-weight:300;max-width:520px;
 }
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
-.btn-hero-primary{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--white);color:var(--teal);
-  font-family:var(--sans);font-size:0.82rem;font-weight:500;
-  letter-spacing:0.06em;text-transform:uppercase;
-  padding:15px 28px;text-decoration:none;
-  transition:all .25s;border:2px solid var(--white);
+.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.btn-white{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--white);color:var(--navy);
+  font-family:var(--sans);font-size:0.75rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:14px 28px;text-decoration:none;
+  border:2px solid var(--white);transition:all .25s;
 }
-.btn-hero-primary:hover{background:transparent;color:var(--white)}
-.btn-hero-ghost{
+.btn-white:hover{background:transparent;color:var(--white)}
+.btn-outline-white{
   display:inline-flex;align-items:center;gap:8px;
-  color:rgba(255,255,255,0.75);font-size:0.82rem;font-weight:400;
-  letter-spacing:0.06em;text-transform:uppercase;
-  padding:15px 0;text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.35);
-  transition:all .25s;
+  background:transparent;color:rgba(255,255,255,0.75);
+  font-family:var(--sans);font-size:0.75rem;font-weight:400;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:14px 24px;text-decoration:none;
+  border:1.5px solid rgba(255,255,255,0.3);transition:all .25s;
 }
-.btn-hero-ghost:hover{color:var(--white);border-color:var(--white)}
-/* Hero side card */
-.hero-card{
-  background:rgba(255,255,255,0.07);
-  border:1px solid rgba(255,255,255,0.15);
-  backdrop-filter:blur(12px);
-  padding:24px 22px;min-width:200px;
-  display:flex;flex-direction:column;gap:18px;
+.btn-outline-white:hover{border-color:var(--white);color:var(--white)}
+
+/* Hero stats — right side */
+.hero-stats{
+  display:flex;flex-direction:column;gap:0;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(16px);
+  min-width:190px;flex-shrink:0;
 }
-.hcard-item{}
-.hcard-num{
-  font-family:var(--serif);font-size:2.2rem;
+.hs-item{
+  padding:22px 24px;border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.hs-item:last-child{border-bottom:none}
+.hs-num{
+  font-family:var(--serif);font-size:2.1rem;
   color:var(--white);font-weight:400;line-height:1;
 }
-.hcard-label{
-  font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:rgba(255,255,255,0.45);margin-top:5px;font-weight:400;
+.hs-label{
+  font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);margin-top:5px;font-weight:400;
 }
-.hcard-div{height:1px;background:rgba(255,255,255,0.1)}
 
-/* ─── TRUST BAR ─── */
-.trust-bar{
-  background:var(--teal);
-  display:flex;justify-content:center;align-items:center;
+/* ── TRUST STRIP ── */
+.trust{
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
   flex-wrap:wrap;gap:0;
 }
-.tb-item{
-  display:flex;align-items:center;gap:9px;
-  padding:16px 32px;
-  font-size:0.75rem;letter-spacing:0.06em;
-  color:rgba(255,255,255,0.75);font-weight:300;
-  border-right:1px solid rgba(255,255,255,0.1);
+.trust-item{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 28px;
+  border-right:1px solid rgba(255,255,255,0.07);
+  font-size:0.72rem;letter-spacing:0.05em;
+  color:rgba(255,255,255,0.6);font-weight:300;white-space:nowrap;
 }
-.tb-item:last-child{border-right:none}
-.tb-icon{color:var(--gold-light);font-size:0.9rem;flex-shrink:0}
+.trust-item:last-child{border-right:none}
+.trust-icon{color:var(--gold2);font-size:0.8rem}
 
-/* ─── SECTIONS ─── */
-.section{padding:100px 5%}
-.section--cream{background:var(--bg)}
+/* ── LAYOUT HELPERS ── */
+.section{padding:96px var(--space)}
+.section--off{background:var(--off)}
 .section--white{background:var(--white)}
-.section--teal{background:var(--teal)}
-.s-eyebrow{
-  font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--gold);font-weight:400;margin-bottom:1rem;
+.section--navy{background:var(--navy)}
+.eyebrow{
+  font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;margin-bottom:1rem;
   display:flex;align-items:center;gap:12px;
 }
-.s-eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--gold)}
-.s-h2{
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--gold)}
+.eyebrow--light{color:var(--gold2)}
+.eyebrow--light::before{background:var(--gold2)}
+h2{
   font-family:var(--serif);
-  font-size:clamp(1.9rem,3.2vw,3rem);
-  font-weight:400;color:var(--ink);
-  line-height:1.2;margin-bottom:1.2rem;letter-spacing:-0.01em;
+  font-size:clamp(1.9rem,3vw,2.9rem);
+  font-weight:400;line-height:1.2;
+  letter-spacing:-0.01em;margin-bottom:1.2rem;
+  color:var(--ink);
 }
-.s-h2 em{font-style:italic;color:var(--teal)}
-.s-h2--white{color:var(--white)}
-.s-h2--white em{color:var(--gold-light)}
-.s-lead{font-size:0.92rem;color:var(--ink3);line-height:1.85;max-width:520px}
-.s-lead--white{color:rgba(255,255,255,0.55)}
+h2 em{font-style:italic;color:var(--navy)}
+h2.light{color:var(--white)}
+h2.light em{color:var(--gold2)}
+.lead{
+  font-size:0.92rem;color:var(--ink3);
+  line-height:1.85;max-width:500px;font-weight:300;
+}
+.lead--light{color:rgba(255,255,255,0.5)}
 
-/* ─── ABOUT ─── */
-.about-wrap{
-  display:grid;grid-template-columns:5fr 6fr;
-  gap:80px;align-items:start;margin-top:64px;
+/* ── ABOUT ── */
+.about-grid{
+  display:grid;grid-template-columns:420px 1fr;
+  gap:80px;align-items:start;margin-top:60px;
 }
-.about-img-col{position:relative}
+.about-img-wrap{position:relative}
 .about-img{
-  width:100%;height:520px;overflow:hidden;
+  width:100%;aspect-ratio:3/4;overflow:hidden;
   position:relative;
 }
 .about-img img{
   width:100%;height:100%;object-fit:cover;
-  object-position:center;
-  transition:transform .7s ease;
-  filter:saturate(0.88);
+  transition:transform .8s ease;
+  filter:saturate(0.85) brightness(0.98);
 }
 .about-img:hover img{transform:scale(1.03)}
-.about-img-badge{
-  position:absolute;bottom:0;left:0;right:0;
-  background:var(--teal);padding:16px 20px;
-  display:flex;align-items:center;gap:12px;
+/* Rating badge overlaid */
+.about-badge{
+  position:absolute;bottom:-1px;left:-1px;right:-1px;
+  background:var(--navy);padding:16px 20px;
+  display:flex;align-items:center;justify-content:space-between;
 }
-.aib-star{color:var(--gold-light);font-size:0.8rem;letter-spacing:2px}
-.aib-text{font-size:0.78rem;color:rgba(255,255,255,0.85);font-weight:300}
-.aib-text strong{font-weight:500;color:var(--white)}
+.ab-left{}
+.ab-stars{color:var(--gold2);font-size:0.78rem;letter-spacing:2.5px}
+.ab-text{font-size:0.7rem;color:rgba(255,255,255,0.5);margin-top:3px;font-weight:300}
+.ab-num{
+  font-family:var(--serif);font-size:2rem;
+  color:var(--white);font-weight:400;line-height:1;
+}
 
-.about-text-col{padding-top:8px}
-.about-h3{
-  font-family:var(--serif);font-size:1.7rem;font-weight:400;
+.about-content{padding-top:6px}
+h3{
+  font-family:var(--serif);font-size:1.65rem;font-weight:400;
   color:var(--ink);line-height:1.3;margin-bottom:1.2rem;
 }
-.about-h3 em{font-style:italic;color:var(--teal)}
-.about-p{font-size:0.9rem;color:var(--ink2);line-height:1.9;margin-bottom:1rem;font-weight:300}
-.cred-list{margin-top:2.2rem;border-top:1px solid var(--border)}
-.cred-row{
-  display:flex;gap:18px;padding:14px 0;
-  border-bottom:1px solid var(--border);align-items:baseline;
+h3 em{font-style:italic;color:var(--navy)}
+.about-p{
+  font-size:0.88rem;color:var(--ink2);
+  line-height:1.95;margin-bottom:1rem;font-weight:300;
 }
-.cred-year{
-  font-family:var(--serif);font-size:0.82rem;
-  color:var(--teal);font-weight:600;min-width:38px;white-space:nowrap;
+.about-p strong{color:var(--ink);font-weight:500}
+.creds{margin-top:2.4rem;border-top:1px solid var(--border)}
+.cred{
+  display:grid;grid-template-columns:52px 1fr;
+  gap:16px;padding:13px 0;
+  border-bottom:1px solid var(--border);
+  align-items:baseline;
 }
-.cred-info{font-size:0.83rem;color:var(--ink2);line-height:1.6;font-weight:300}
-.cred-info strong{color:var(--ink);font-weight:500;display:block;margin-bottom:2px}
+.cred-y{
+  font-family:var(--serif);font-size:0.8rem;
+  color:var(--gold);font-weight:500;
+}
+.cred-body{font-size:0.82rem;color:var(--ink2);line-height:1.6;font-weight:300}
+.cred-body b{color:var(--ink);font-weight:500;display:block;font-size:0.84rem;margin-bottom:1px}
 
-/* ─── SERVICES ─── */
+/* ── SERVICES ── */
 .svc-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
-  gap:2px;background:var(--border);margin-top:64px;
+  gap:1px;background:var(--border);
+  margin-top:60px;
 }
-.svc-card{
+.svc{
   background:var(--white);padding:36px 30px;
   position:relative;overflow:hidden;
-  transition:background .3s;cursor:default;
+  transition:background .3s;
 }
-.svc-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;
-  height:3px;background:var(--teal);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .4s cubic-bezier(.25,.46,.45,.94);
+.svc::after{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--navy);
+  transform:scaleY(0);transform-origin:top;
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
 }
-.svc-card:hover::before{transform:scaleX(1)}
-.svc-card:hover{background:#f9f8f6}
-.svc-n{
-  font-family:var(--serif);font-size:0.7rem;
-  color:var(--border);font-weight:600;
-  margin-bottom:1.2rem;letter-spacing:0.06em;
+.svc:hover::after{transform:scaleY(1)}
+.svc:hover{background:var(--off)}
+.svc-num{
+  font-size:0.65rem;color:var(--border);letter-spacing:0.1em;
+  font-weight:600;margin-bottom:1.4rem;
   transition:color .3s;
 }
-.svc-card:hover .svc-n{color:var(--teal)}
+.svc:hover .svc-num{color:var(--gold)}
 .svc-title{
-  font-family:var(--serif);font-size:1.15rem;
-  color:var(--ink);font-weight:600;margin-bottom:.7rem;
-  line-height:1.3;
+  font-family:var(--serif);font-size:1.1rem;font-weight:500;
+  color:var(--ink);margin-bottom:.7rem;line-height:1.35;
 }
-.svc-desc{font-size:0.82rem;color:var(--ink3);line-height:1.8;font-weight:300}
-.svc-more{
-  margin-top:1.2rem;font-size:0.72rem;letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--teal);font-weight:400;
-  display:inline-flex;align-items:center;gap:6px;
-  opacity:0;transform:translateX(-6px);
+.svc-desc{font-size:0.81rem;color:var(--ink3);line-height:1.8;font-weight:300}
+.svc-cta{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:0.7rem;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--navy);
+  margin-top:1.2rem;
+  opacity:0;transform:translateY(4px);
   transition:opacity .3s,transform .3s;
 }
-.svc-card:hover .svc-more{opacity:1;transform:translateX(0)}
+.svc:hover .svc-cta{opacity:1;transform:none}
 
-/* ─── WHY US ─── */
+/* ── WHY GRID ── */
 .why-grid{
   display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:rgba(255,255,255,0.08);
-  margin-top:64px;
+  gap:1px;background:rgba(255,255,255,0.07);
+  margin-top:60px;
 }
-.why-card{
-  padding:40px 28px;
-  border-bottom:2px solid transparent;
-  transition:border-color .3s;
+.why{
+  padding:40px 30px;
+  border-bottom:3px solid transparent;
+  transition:border-color .3s,background .3s;
 }
-.why-card:hover{border-color:var(--gold-light)}
-.why-icon{font-size:1.6rem;margin-bottom:1.2rem}
+.why:hover{border-color:var(--gold2);background:rgba(255,255,255,0.03)}
+.why-ico{font-size:1.5rem;margin-bottom:1.2rem;display:block}
 .why-title{
-  font-family:var(--serif);font-size:1.05rem;
-  color:var(--white);font-weight:600;margin-bottom:.6rem;
+  font-family:var(--serif);font-size:1rem;font-weight:400;
+  color:var(--white);margin-bottom:.6rem;line-height:1.35;
 }
-.why-desc{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.75;font-weight:300}
+.why-desc{font-size:0.79rem;color:rgba(255,255,255,0.38);line-height:1.8;font-weight:300}
 
-/* ─── REVIEWS ─── */
-.reviews-top{
+/* ── REVIEWS ── */
+.reviews-head{
   display:flex;justify-content:space-between;align-items:flex-end;
-  margin-bottom:48px;flex-wrap:wrap;gap:24px;
+  margin-bottom:48px;gap:24px;flex-wrap:wrap;
 }
-.google-score{
-  display:flex;align-items:center;gap:16px;
-  background:var(--white);border:1px solid var(--border);
-  padding:16px 22px;
+.gscore{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 22px;border:1px solid var(--border);
+  background:var(--white);
 }
-.gs-num{
-  font-family:var(--serif);font-size:2.6rem;
+.gscore-num{
+  font-family:var(--serif);font-size:2.8rem;
   color:var(--ink);font-weight:400;line-height:1;
 }
-.gs-right{}
-.gs-stars{color:#f4a724;font-size:1rem;letter-spacing:2px}
-.gs-label{font-size:0.68rem;color:var(--ink3);margin-top:4px;letter-spacing:0.06em}
-.reviews-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+.gscore-right{}
+.gscore-stars{color:#f5a623;font-size:0.88rem;letter-spacing:2px}
+.gscore-label{font-size:0.65rem;color:var(--ink3);margin-top:3px;letter-spacing:0.08em}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.rv{
+  background:var(--white);padding:32px 28px;
+  transition:box-shadow .3s,transform .25s;
 }
-.rv-card{
-  background:var(--white);border:1px solid var(--border);
-  padding:32px 28px;position:relative;
-  transition:box-shadow .3s,transform .3s;
+.rv:hover{box-shadow:0 10px 40px rgba(0,0,0,0.07);transform:translateY(-2px);position:relative;z-index:1}
+.rv-stars{color:#f5a623;font-size:0.76rem;letter-spacing:2px;margin-bottom:1.1rem}
+.rv-q{
+  font-family:var(--serif);font-size:0.88rem;font-style:italic;
+  color:var(--ink2);line-height:1.85;margin-bottom:1.4rem;font-weight:400;
 }
-.rv-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.07);transform:translateY(-2px)}
-.rv-stars{color:#f4a724;font-size:0.8rem;letter-spacing:2px;margin-bottom:1.2rem}
-.rv-text{
-  font-family:var(--serif);font-size:0.9rem;font-style:italic;
-  color:var(--ink2);line-height:1.8;margin-bottom:1.5rem;font-weight:400;
-}
-.rv-name{font-size:0.8rem;font-weight:500;color:var(--ink)}
-.rv-detail{font-size:0.72rem;color:var(--ink3);margin-top:3px;font-weight:300}
+.rv-name{font-size:0.78rem;font-weight:600;color:var(--ink);letter-spacing:0.02em}
+.rv-meta{font-size:0.7rem;color:var(--ink3);margin-top:2px;font-weight:300}
 
-/* ─── CONTACT ─── */
-.contact-wrap{
+/* ── CONTACT ── */
+.contact-grid{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:80px;margin-top:64px;align-items:start;
+  gap:80px;margin-top:60px;align-items:start;
 }
-.contact-info-h3{
-  font-family:var(--serif);font-size:1.3rem;font-weight:600;
-  color:var(--ink);margin-bottom:2rem;
+.contact-info-title{
+  font-family:var(--serif);font-size:1.25rem;font-weight:500;
+  color:var(--ink);margin-bottom:1.8rem;
 }
-.ci-row{margin-bottom:1.8rem}
+.ci{margin-bottom:1.6rem}
 .ci-label{
-  font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:6px;font-weight:400;
+  font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:5px;font-weight:500;
 }
-.ci-val{font-size:0.88rem;color:var(--ink);line-height:1.65;font-weight:300}
-.ci-val a{color:var(--teal);text-decoration:none;font-weight:500}
-.ci-val a:hover{text-decoration:underline}
-.hours-tbl{width:100%;border-collapse:collapse}
-.hours-tbl td{
-  font-size:0.82rem;padding:5px 0;color:var(--ink2);font-weight:300;
-}
-.hours-tbl td:last-child{text-align:right;color:var(--ink)}
-.hours-tbl tr.today td{color:var(--teal);font-weight:500}
-.hours-tbl tr.closed td{color:var(--border);text-decoration:line-through}
-.ins-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.ins{
-  font-size:0.68rem;padding:4px 10px;
+.ci-val{font-size:0.87rem;color:var(--ink2);line-height:1.7;font-weight:300}
+.ci-val a{color:var(--navy);font-weight:500;text-decoration:none;transition:color .2s}
+.ci-val a:hover{color:var(--gold)}
+.hrs{width:100%;border-collapse:collapse}
+.hrs td{font-size:0.81rem;padding:5px 0;color:var(--ink2);font-weight:300}
+.hrs td:last-child{text-align:right;color:var(--ink);font-weight:400}
+.hrs tr.today td{color:var(--navy);font-weight:600}
+.hrs tr.closed td{color:var(--border);text-decoration:line-through}
+.ins-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.ins-tag{
+  font-size:0.66rem;padding:3px 10px;
   border:1px solid var(--border);color:var(--ink3);
   letter-spacing:0.04em;font-weight:300;
 }
-.map-ph{
-  margin-top:2rem;height:190px;
-  background:#d8e4d8;overflow:hidden;position:relative;
-  border:1px solid var(--border);
+.map-box{
+  margin-top:1.8rem;height:180px;overflow:hidden;
+  position:relative;border:1px solid var(--border);
 }
-.map-ph img{width:100%;height:100%;object-fit:cover;opacity:.8}
+.map-box img{width:100%;height:100%;object-fit:cover;opacity:.85;display:block}
 .map-label{
   position:absolute;bottom:0;left:0;right:0;
-  background:rgba(26,74,74,.88);padding:10px 16px;
-  font-size:0.72rem;color:rgba(255,255,255,.8);letter-spacing:.06em;
+  background:rgba(11,26,46,.88);padding:9px 15px;
+  font-size:0.7rem;color:rgba(255,255,255,.75);letter-spacing:.06em;
 }
 
 /* FORM */
-.form-h3{
-  font-family:var(--serif);font-size:1.3rem;font-weight:600;
-  color:var(--ink);margin-bottom:2rem;
+.form-title{
+  font-family:var(--serif);font-size:1.25rem;font-weight:500;
+  color:var(--ink);margin-bottom:1.8rem;
 }
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.f-grp{margin-bottom:16px}
-.f-lbl{
-  display:block;font-size:0.65rem;letter-spacing:0.14em;
-  text-transform:uppercase;color:var(--ink3);margin-bottom:7px;font-weight:400;
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{margin-bottom:14px}
+.fl{
+  display:block;font-size:0.6rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--ink3);
+  margin-bottom:6px;font-weight:500;
 }
-.f-inp{
-  width:100%;padding:12px 14px;
+.fi{
+  width:100%;
+  padding:11px 13px;
   border:1.5px solid var(--border);
-  background:var(--white);
-  font-family:var(--sans);font-size:0.88rem;
-  color:var(--ink);font-weight:300;outline:none;
-  transition:border-color .2s;appearance:none;
-  border-radius:0;
+  background:var(--off);
+  font-family:var(--sans);font-size:0.86rem;
+  color:var(--ink);font-weight:300;
+  outline:none;transition:border-color .2s,background .2s;
+  border-radius:0;appearance:none;
 }
-.f-inp:focus{border-color:var(--teal)}
-textarea.f-inp{resize:none;min-height:100px}
-select.f-inp{
+.fi:focus{border-color:var(--navy);background:var(--white)}
+textarea.fi{resize:none;min-height:96px}
+select.fi{
   cursor:pointer;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 5 5-5' stroke='%237a7a7a' stroke-width='1.3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 5 5-5' stroke='%236b7a8d' stroke-width='1.3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;
 }
-.f-submit{
-  width:100%;padding:15px;
-  background:var(--teal);color:var(--white);border:none;
-  font-family:var(--sans);font-size:0.78rem;font-weight:500;
+.f-btn{
+  width:100%;padding:14px;
+  background:var(--navy);color:var(--white);border:2px solid var(--navy);
+  font-family:var(--sans);font-size:0.73rem;font-weight:600;
   letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;
-  transition:background .25s;margin-top:8px;
+  margin-top:6px;transition:all .25s;
 }
-.f-submit:hover{background:var(--teal-mid)}
-.f-note{font-size:0.7rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300}
-.f-success{
-  display:none;padding:20px;
-  background:#f0f7f4;border:1.5px solid #a8d5c2;
+.f-btn:hover{background:transparent;color:var(--navy)}
+.f-note{font-size:0.68rem;color:var(--ink3);text-align:center;margin-top:9px;font-weight:300}
+.f-ok{
+  display:none;padding:18px;margin-top:12px;
+  border:1.5px solid #b8d8c8;background:#f0f8f4;
   font-family:var(--serif);font-style:italic;
-  font-size:0.9rem;color:var(--teal);text-align:center;
-  margin-top:12px;line-height:1.6;
+  font-size:0.88rem;color:#1a5a3a;text-align:center;line-height:1.6;
 }
 
-/* ─── FOOTER ─── */
-footer{background:#111d1d;padding:64px 5% 32px}
-.footer-grid{
-  display:grid;grid-template-columns:1.6fr 1fr 1fr;
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:64px var(--space) 32px}
+.footer-top{
+  display:grid;grid-template-columns:1.8fr 1fr 1fr;
   gap:56px;padding-bottom:48px;
   border-bottom:1px solid rgba(255,255,255,0.06);
 }
-.f-brand{
-  font-family:var(--serif);font-size:1.1rem;
-  color:var(--white);font-weight:600;margin-bottom:.8rem;
+.footer-brand{
+  font-family:var(--serif);font-size:1.05rem;font-weight:500;
+  color:var(--white);margin-bottom:.8rem;
 }
-.f-brand span{
+.footer-brand span{
   display:block;font-family:var(--sans);font-weight:300;
-  font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.3);margin-top:4px;
+  font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.25);margin-top:4px;
 }
-.f-about{font-size:0.8rem;color:rgba(255,255,255,.3);line-height:1.8;font-weight:300;max-width:260px}
-.f-col h4{
-  font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--gold-light);margin-bottom:1.2rem;font-weight:400;
+.footer-about{font-size:0.79rem;color:rgba(255,255,255,.28);line-height:1.85;font-weight:300;max-width:260px}
+.footer-col h4{
+  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold2);margin-bottom:1.2rem;font-weight:500;
 }
-.f-col ul{list-style:none}
-.f-col li{margin-bottom:.6rem}
-.f-col a{
-  font-size:0.82rem;color:rgba(255,255,255,.3);
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.55rem}
+.footer-col a{
+  font-size:0.8rem;color:rgba(255,255,255,.28);
   text-decoration:none;font-weight:300;transition:color .2s;
 }
-.f-col a:hover{color:rgba(255,255,255,.7)}
+.footer-col a:hover{color:rgba(255,255,255,.7)}
 .footer-bottom{
-  display:flex;justify-content:space-between;align-items:center;
-  padding-top:24px;font-size:0.68rem;color:rgba(255,255,255,.18);
-  font-weight:300;flex-wrap:wrap;gap:8px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;
+  gap:8px;padding-top:24px;
+  font-size:0.66rem;color:rgba(255,255,255,.18);font-weight:300;
 }
 .footer-bottom a{color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
-.footer-bottom a:hover{color:var(--gold-light)}
+.footer-bottom a:hover{color:var(--gold2)}
 
-/* ─── COOKIE ─── */
-.cookie{
-  position:fixed;bottom:20px;left:20px;z-index:999;
-  background:var(--teal);color:var(--white);
-  padding:18px 24px;max-width:420px;
-  box-shadow:0 8px 40px rgba(0,0,0,.2);
+/* ── COOKIE ── */
+.cookie-bar{
+  position:fixed;bottom:20px;left:20px;z-index:9999;
+  background:var(--navy);padding:18px 22px;max-width:400px;
+  box-shadow:0 12px 48px rgba(0,0,0,.22);
+  border-left:3px solid var(--gold);
   display:flex;flex-direction:column;gap:12px;
 }
-.cookie-txt{font-size:0.78rem;line-height:1.6;color:rgba(255,255,255,.75);font-weight:300}
-.cookie-txt a{color:var(--gold-light)}
-.cookie-btns{display:flex;gap:10px}
-.ck-btn{
-  padding:8px 18px;font-family:var(--sans);font-size:0.7rem;
-  letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:none;font-weight:400;
-}
-.ck-ok{background:var(--white);color:var(--teal)}
-.ck-no{background:transparent;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.2)}
+.cookie-txt{font-size:0.76rem;color:rgba(255,255,255,.6);line-height:1.6;font-weight:300}
+.cookie-txt a{color:var(--gold2)}
+.cookie-btns{display:flex;gap:8px}
+.ck{padding:8px 16px;font-family:var(--sans);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:none;font-weight:500}
+.ck-ok{background:var(--white);color:var(--navy)}
+.ck-no{background:transparent;color:rgba(255,255,255,.38);border:1px solid rgba(255,255,255,.15)}
 
-/* ─── REVEAL ─── */
-.r{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+/* ── REVEAL ── */
+.r{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .r.in{opacity:1;transform:none}
-.r.d1{transition-delay:.1s}.r.d2{transition-delay:.2s}.r.d3{transition-delay:.3s}.r.d4{transition-delay:.4s}
+.r.d1{transition-delay:.1s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.26s}.r.d4{transition-delay:.34s}
 
-/* ─── MOBILE ─── */
-@media(max-width:960px){
-  .nav-links{display:none}
-  .hero-content{grid-template-columns:1fr}
-  .hero-card{display:none}
-  .about-wrap,.contact-wrap{grid-template-columns:1fr;gap:48px}
-  .svc-grid{grid-template-columns:1fr 1fr}
+/* ── MOBILE ── */
+@media(max-width:1024px){
+  .nav-menu{display:none}
+  .nav-divider{display:none}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-img{aspect-ratio:16/9}
   .why-grid{grid-template-columns:1fr 1fr}
-  .reviews-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr;gap:32px}
-  .f-row{grid-template-columns:1fr}
-  .section{padding:72px 5%}
-  .tb-item{padding:12px 16px;font-size:0.7rem}
+  .hero-stats{display:none}
 }
-@media(max-width:600px){
-  .svc-grid,.why-grid{grid-template-columns:1fr}
-  .hero-h1{font-size:2.2rem}
-  .nav-phone{font-size:0.78rem;padding:7px 12px}
+@media(max-width:768px){
+  :root{--space:5%}
+  #hero{height:auto;min-height:100svh;max-height:none}
+  .hero-inner{padding-bottom:56px}
+  h1{font-size:2.3rem}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .f2{grid-template-columns:1fr}
+  .trust-item{padding:10px 16px;font-size:0.68rem}
+  .topbar{display:none}
+}
+@media(max-width:480px){
+  .svc-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .btn-white,.btn-outline-white{width:100%;justify-content:center}
 }
 </style>
 </head>
 <body>
 
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-item"><span class="topbar-gold">★★★★★</span>&nbsp;4.9 / 214 αξιολογήσεις Google</div>
+  <div class="topbar-dot">●</div>
+  <div class="topbar-item">✓ Μέλος ΕΟΕ & ESCRS</div>
+  <div class="topbar-dot">●</div>
+  <div class="topbar-item">✓ ΕΟΠΥΥ & Ιδιωτικές Ασφαλίσεις</div>
+  <div class="topbar-dot">●</div>
+  <div class="topbar-item">📞 <a href="tel:+302310441200">2310 441 200</a></div>
+</div>
+
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">
+  <a href="#" class="nav-brand">
     Δρ. Σταύρος Παπαδόπουλος
-    <span>Χειρουργός Οφθαλμίατρος · MD, PhD</span>
-  </div>
-  <ul class="nav-links">
+    <small>Χειρουργός Οφθαλμίατρος · MD, PhD</small>
+  </a>
+  <ul class="nav-menu">
     <li><a href="#about">Βιογραφικό</a></li>
     <li><a href="#services">Υπηρεσίες</a></li>
     <li><a href="#why">Γιατί εμάς</a></li>
     <li><a href="#reviews">Αξιολογήσεις</a></li>
     <li><a href="#contact">Επικοινωνία</a></li>
   </ul>
-  <a href="tel:+302310441200" class="nav-phone">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  <div class="nav-divider"></div>
+  <a href="tel:+302310441200" class="nav-tel">
+    <span class="nav-tel-icon">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.84 1.18 2 2 0 012.83 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    </span>
     2310 441 200
   </a>
+  <a href="#contact" class="nav-cta">Ραντεβού</a>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg">
-    <!-- Doctor examining patient — human, warm, trustworthy -->
-    <img
-      src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1600&q=88&fit=crop&crop=center&auto=format"
-      alt="Εξέταση ασθενή"
-      loading="eager">
+  <div class="hero-img">
+    <!-- Doctor performing eye examination with slit lamp — professional, medical, human -->
+    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1800&q=88&fit=crop&crop=center&auto=format" alt="Οφθαλμολογική εξέταση" loading="eager">
   </div>
-  <div class="hero-content">
+  <div class="hero-inner">
     <div class="hero-text">
-      <p class="hero-kicker">Οφθαλμολογικό Ιατρείο — Θεσσαλονίκη</p>
-      <h1 class="hero-h1">
+      <p class="hero-eyebrow">Οφθαλμολογικό Ιατρείο · Θεσσαλονίκη</p>
+      <h1>
         Βλέπετε θολά;<br>
-        Έχετε <em>ερωτήσεις</em><br>
-        για τα μάτια σας;
+        Ήρθε η ώρα να<br>
+        <em>το λύσετε.</em>
       </h1>
-      <p class="hero-sub">
-        Εξειδικευμένος χειρουργός με 18 χρόνια εμπειρία και Fellowship στο Moorfields Eye Hospital του Λονδίνου. Σωστή διάγνωση, ξεκάθαρη εξήγηση, αποτελεσματική θεραπεία.
+      <p class="hero-lead">
+        Χειρουργός οφθαλμίατρος με 18 χρόνια εμπειρία και εξειδίκευση στο Moorfields Eye Hospital του Λονδίνου. Σωστή διάγνωση, ξεκάθαρη εξήγηση — χωρίς βιασύνη.
       </p>
-      <div class="hero-btns">
-        <a href="tel:+302310441200" class="btn-hero-primary">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <div class="hero-actions">
+        <a href="tel:+302310441200" class="btn-white">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.84 1.18 2 2 0 012.83 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
           Τηλεφωνήστε μας
         </a>
-        <a href="#contact" class="btn-hero-ghost">Ραντεβού Online →</a>
+        <a href="#contact" class="btn-outline-white">Κλείστε Ραντεβού Online →</a>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hcard-item">
-        <div class="hcard-num" data-target="18" data-suffix="+">0+</div>
-        <div class="hcard-label">Χρόνια εμπειρίας</div>
+    <div class="hero-stats">
+      <div class="hs-item">
+        <div class="hs-num" data-target="18" data-suffix="+">18+</div>
+        <div class="hs-label">Χρόνια εμπειρίας</div>
       </div>
-      <div class="hcard-div"></div>
-      <div class="hcard-item">
-        <div class="hcard-num" data-target="3200" data-suffix="+" data-format="dot">0+</div>
-        <div class="hcard-label">Επεμβάσεις</div>
+      <div class="hs-item">
+        <div class="hs-num" data-target="3200" data-suffix="+" data-format="dot">3.200+</div>
+        <div class="hs-label">Επεμβάσεις</div>
       </div>
-      <div class="hcard-div"></div>
-      <div class="hcard-item">
-        <div class="hcard-num" data-target="4.9" data-suffix="" data-decimal="1">0.0</div>
-        <div class="hcard-label">★ Google Rating</div>
+      <div class="hs-item">
+        <div class="hs-num" data-target="4.9" data-decimal="1">4.9</div>
+        <div class="hs-label">★ Google Rating</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="tb-item"><span class="tb-icon">★</span> 4.9 · 214 Αξιολογήσεις Google</div>
-  <div class="tb-item"><span class="tb-icon">✓</span> Μέλος Ελληνικής Οφθαλμολογικής Εταιρείας</div>
-  <div class="tb-item"><span class="tb-icon">✓</span> Fellowship — Moorfields Eye Hospital, Λονδίνο</div>
-  <div class="tb-item"><span class="tb-icon">✓</span> ΕΟΠΥΥ & Ιδιωτικές Ασφαλίσεις</div>
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="trust-item"><span class="trust-icon">★</span>4.9 · 214 Αξιολογήσεις Google</div>
+  <div class="trust-item"><span class="trust-icon">✓</span>Μέλος Ελληνικής Οφθαλμολογικής Εταιρείας</div>
+  <div class="trust-item"><span class="trust-icon">✓</span>Fellowship — Moorfields Eye Hospital, Λονδίνο</div>
+  <div class="trust-item"><span class="trust-icon">✓</span>ΕΟΠΥΥ & Ιδιωτικές Ασφαλίσεις</div>
 </div>
 
 <!-- ABOUT -->
 <section id="about" class="section section--white">
-  <p class="s-eyebrow r">Βιογραφικό</p>
-  <h2 class="s-h2 r d1">Εξειδίκευση που <em>πραγματικά μετράει</em></h2>
-  <div class="about-wrap">
-    <div class="about-img-col r">
+  <p class="eyebrow r">Βιογραφικό</p>
+  <h2 class="r d1">Εξειδίκευση που<br><em>πραγματικά μετράει</em></h2>
+  <div class="about-grid">
+    <div class="about-img-wrap r">
       <div class="about-img">
-        <img
-          src="https://images.unsplash.com/photo-1631248055158-edec7a3c072b?w=800&q=88&fit=crop&crop=center&auto=format"
-          alt="Χώρος ιατρείου">
+        <img src="https://images.unsplash.com/photo-1631248055158-edec7a3c072b?w=800&q=88&fit=crop&crop=center&auto=format" alt="Χώρος ιατρείου">
       </div>
-      <div class="about-img-badge">
-        <span class="aib-star">★★★★★</span>
-        <span class="aib-text"><strong>4.9/5</strong> · 214 αξιολογήσεις Google</span>
+      <div class="about-badge">
+        <div class="ab-left">
+          <div class="ab-stars">★★★★★</div>
+          <div class="ab-text">214 αξιολογήσεις Google</div>
+        </div>
+        <div class="ab-num">4.9</div>
       </div>
     </div>
-    <div class="about-text-col">
-      <h3 class="about-h3 r d1">Ο γιατρός που επιστρέφει<br>στη Θεσσαλονίκη <em>με γνώση</em></h3>
-      <p class="about-p r d2">Σπούδασα Ιατρική στο ΑΠΘ και πήγα στο Λονδίνο για να εξειδικευτώ στο <strong>Moorfields Eye Hospital</strong> — ένα από τα δύο κορυφαία οφθαλμολογικά κέντρα στον κόσμο. Επέστρεψα για να φέρω αυτό το επίπεδο φροντίδας στην πόλη μου.</p>
+    <div class="about-content">
+      <h3 class="r d1">Ο γιατρός που επέστρεψε<br>στη Θεσσαλονίκη <em>με γνώση</em></h3>
+      <p class="about-p r d2">Σπούδασα Ιατρική στο ΑΠΘ και μετεκπαιδεύτηκα στο <strong>Moorfields Eye Hospital</strong> του Λονδίνου — ένα από τα κορυφαία οφθαλμολογικά κέντρα παγκοσμίως. Επέστρεψα για να φέρω αυτό το επίπεδο φροντίδας στην πόλη μου.</p>
       <p class="about-p r d3">Κάθε ασθενής παίρνει τον χρόνο που αξίζει. Εξηγώ τι βρήκα, τι σημαίνει, και ποιες είναι οι επιλογές σας — χωρίς ιατρική ορολογία, χωρίς βιασύνη.</p>
-      <div class="cred-list r d4">
-        <div class="cred-row">
-          <span class="cred-year">2003</span>
-          <div class="cred-info"><strong>MD — Ιατρική Σχολή ΑΠΘ</strong>Αριστούχος απόφοιτος</div>
-        </div>
-        <div class="cred-row">
-          <span class="cred-year">2007</span>
-          <div class="cred-info"><strong>PhD — ΑΠΘ</strong>«Φακοθρυψία στη διαχείριση του σκληρού καταρράκτη»</div>
-        </div>
-        <div class="cred-row">
-          <span class="cred-year">2010</span>
-          <div class="cred-info"><strong>Fellowship — Moorfields Eye Hospital, Λονδίνο</strong>Χειρουργική καταρράκτη, γλαύκωμα, διαθλαστική χειρουργική</div>
-        </div>
-        <div class="cred-row">
-          <span class="cred-year">—</span>
-          <div class="cred-info"><strong>Μέλος ΕΟΕ & ESCRS</strong>Ελληνική Οφθαλμολογική Εταιρεία · European Society of Cataract & Refractive Surgeons</div>
-        </div>
+      <div class="creds r d4">
+        <div class="cred"><span class="cred-y">2003</span><div class="cred-body"><b>MD — Ιατρική Σχολή ΑΠΘ</b>Αριστούχος απόφοιτος</div></div>
+        <div class="cred"><span class="cred-y">2007</span><div class="cred-body"><b>PhD — ΑΠΘ</b>«Φακοθρυψία στη διαχείριση του σκληρού καταρράκτη»</div></div>
+        <div class="cred"><span class="cred-y">2010</span><div class="cred-body"><b>Fellowship — Moorfields Eye Hospital, Λονδίνο</b>Χειρουργική καταρράκτη, γλαύκωμα, διαθλαστική</div></div>
+        <div class="cred"><span class="cred-y">—</span><div class="cred-body"><b>Μέλος ΕΟΕ & ESCRS</b>Ελληνική Οφθαλμολογική Εταιρεία · European Society of Cataract & Refractive Surgeons</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="section section--cream">
-  <p class="s-eyebrow r">Υπηρεσίες</p>
-  <h2 class="s-h2 r d1">Τι αντιμετωπίζουμε</h2>
-  <p class="s-lead r d2">Από τον ετήσιο έλεγχο έως σύνθετες χειρουργικές επεμβάσεις — όλα σε ένα ιατρείο.</p>
+<section id="services" class="section section--off">
+  <p class="eyebrow r">Υπηρεσίες</p>
+  <h2 class="r d1">Τι αντιμετωπίζουμε</h2>
+  <p class="lead r d2">Από τον ετήσιο έλεγχο έως σύνθετες χειρουργικές επεμβάσεις — όλα σε ένα ιατρείο.</p>
   <div class="svc-grid r">
-    <div class="svc-card">
-      <div class="svc-n">01</div>
+    <div class="svc">
+      <div class="svc-num">01</div>
       <div class="svc-title">Χειρουργική Καταρράκτη</div>
-      <div class="svc-desc">Επέμβαση της ίδιας μέρας με φακοθρυψία — επιστρέφετε στις δραστηριότητές σας σε ημέρες, με ξεκάθαρη όραση.</div>
-      <span class="svc-more">Μάθετε περισσότερα →</span>
+      <div class="svc-desc">Επέμβαση της ίδιας μέρας — επιστρέφετε σπίτι με ξεκάθαρη όραση σε λίγες μέρες.</div>
+      <span class="svc-cta">Περισσότερα →</span>
     </div>
-    <div class="svc-card">
-      <div class="svc-n">02</div>
+    <div class="svc">
+      <div class="svc-num">02</div>
       <div class="svc-title">Θεραπεία Γλαυκώματος</div>
-      <div class="svc-desc">Πρώιμη ανίχνευση και εξατομικευμένη θεραπεία — φαρμακευτική, laser ή χειρουργική ανάλογα με την ανάγκη σας.</div>
-      <span class="svc-more">Μάθετε περισσότερα →</span>
+      <div class="svc-desc">Πρώιμη ανίχνευση και εξατομικευμένη θεραπεία — φαρμακευτική, laser ή χειρουργική.</div>
+      <span class="svc-cta">Περισσότερα →</span>
     </div>
-    <div class="svc-card">
-      <div class="svc-n">03</div>
+    <div class="svc">
+      <div class="svc-num">03</div>
       <div class="svc-title">LASIK · PRK · ICL</div>
-      <div class="svc-desc">Αποχαιρετήστε τα γυαλιά. Μόνιμη διόρθωση μυωπίας, αστιγματισμού — σε λίγα λεπτά επέμβαση.</div>
-      <span class="svc-more">Μάθετε περισσότερα →</span>
+      <div class="svc-desc">Μόνιμη διόρθωση μυωπίας και αστιγματισμού. Αποχαιρετήστε τα γυαλιά.</div>
+      <span class="svc-cta">Περισσότερα →</span>
     </div>
-    <div class="svc-card">
-      <div class="svc-n">04</div>
+    <div class="svc">
+      <div class="svc-num">04</div>
       <div class="svc-title">Βυθοσκόπηση & AMD</div>
-      <div class="svc-desc">Πλήρης εκτίμηση αμφιβληστροειδούς. Έγκαιρη ανίχνευση και θεραπεία ηλικιακής εκφύλισης ωχράς κηλίδας.</div>
-      <span class="svc-more">Μάθετε περισσότερα →</span>
+      <div class="svc-desc">Πλήρης εκτίμηση αμφιβληστροειδούς. Έγκαιρη ανίχνευση ηλικιακής εκφύλισης.</div>
+      <span class="svc-cta">Περισσότερα →</span>
     </div>
-    <div class="svc-card">
-      <div class="svc-n">05</div>
+    <div class="svc">
+      <div class="svc-num">05</div>
       <div class="svc-title">Πλήρης Οφθαλμολογικός Έλεγχος</div>
-      <div class="svc-desc">Διόπτρες, πίεση, εξέταση βυθού — ό,τι χρειάζεστε σε μία επίσκεψη. Ιδανικό και για ετήσιο προληπτικό έλεγχο.</div>
-      <span class="svc-more">Μάθετε περισσότερα →</span>
+      <div class="svc-desc">Διόπτρες, πίεση, εξέταση βυθού — ό,τι χρειάζεστε σε μία μόνο επίσκεψη.</div>
+      <span class="svc-cta">Περισσότερα →</span>
     </div>
-    <div class="svc-card">
-      <div class="svc-n">06</div>
+    <div class="svc">
+      <div class="svc-num">06</div>
       <div class="svc-title">Παιδοφθαλμολογία</div>
-      <div class="svc-desc">Εξέταση παιδιών από 3 ετών με τον τρόπο που τους αξίζει — ήρεμα, αναλυτικά, χωρίς άγχος.</div>
-      <span class="svc-more">Μάθετε περισσότερα →</span>
+      <div class="svc-desc">Εξέταση παιδιών από 3 ετών — αμβλυωπία, στραβισμός, διόπτρες. Ήρεμα και αναλυτικά.</div>
+      <span class="svc-cta">Περισσότερα →</span>
     </div>
   </div>
 </section>
 
 <!-- WHY US -->
-<section id="why" class="section section--teal">
-  <p class="s-eyebrow r" style="color:var(--gold-light)">Γιατί εμάς</p>
-  <h2 class="s-h2 s-h2--white r d1">Τι σημαίνει για <em>εσάς</em></h2>
-  <p class="s-lead s-lead--white r d2">Σύγχρονος εξοπλισμός σε απλά λόγια — τι κερδίζετε εσείς σε κάθε εξέταση.</p>
+<section id="why" class="section section--navy">
+  <p class="eyebrow eyebrow--light r">Γιατί εμάς</p>
+  <h2 class="light r d1">Τι σημαίνει για <em>εσάς</em></h2>
+  <p class="lead lead--light r d2">Σύγχρονος εξοπλισμός — μεταφρασμένος σε οφέλη για τον ασθενή.</p>
   <div class="why-grid">
-    <div class="why-card r">
-      <div class="why-icon">👁️</div>
-      <div class="why-title">Διάγνωση πριν τα συμπτώματα</div>
+    <div class="why r">
+      <span class="why-ico">👁️</span>
+      <div class="why-title">Πρώιμη διάγνωση</div>
       <div class="why-desc">Τομογραφία αμφιβληστροειδούς (OCT) ανιχνεύει προβλήματα χρόνια πριν τα παρατηρήσετε.</div>
     </div>
-    <div class="why-card r d1">
-      <div class="why-icon">💧</div>
-      <div class="why-title">Ανώδυνη μέτρηση πίεσης</div>
-      <div class="why-desc">Έλεγχος γλαυκώματος χωρίς σταγόνες, χωρίς αέρα — σε δευτερόλεπτα, χωρίς δυσφορία.</div>
+    <div class="why r d1">
+      <span class="why-ico">💧</span>
+      <div class="why-title">Εξέταση χωρίς δυσφορία</div>
+      <div class="why-desc">Μέτρηση πίεσης οφθαλμού χωρίς σταγόνες, χωρίς αέρα — σε δευτερόλεπτα.</div>
     </div>
-    <div class="why-card r d2">
-      <div class="why-icon">🔍</div>
+    <div class="why r d2">
+      <span class="why-ico">🔍</span>
       <div class="why-title">Βυθός χωρίς μυδρίαση</div>
-      <div class="why-desc">Ευρυγώνια φωτογράφηση 200° — φεύγετε αμέσως, χωρίς θολή όραση για ώρες.</div>
+      <div class="why-desc">Φωτογράφηση 200° — φεύγετε αμέσως, χωρίς ώρες θολής όρασης.</div>
     </div>
-    <div class="why-card r d3">
-      <div class="why-icon">📋</div>
-      <div class="why-title">Όλα σε 1 επίσκεψη</div>
-      <div class="why-desc">Πλήρης εξέταση, διάγνωση και πλάνο θεραπείας στην ίδια συνάντηση — χωρίς επιστροφές.</div>
+    <div class="why r d3">
+      <span class="why-ico">📋</span>
+      <div class="why-title">Όλα σε μία επίσκεψη</div>
+      <div class="why-desc">Πλήρης εξέταση, διάγνωση και πλάνο θεραπείας στην ίδια συνάντηση.</div>
     </div>
   </div>
 </section>
 
 <!-- REVIEWS -->
 <section id="reviews" class="section section--white">
-  <div class="reviews-top r">
+  <div class="reviews-head r">
     <div>
-      <p class="s-eyebrow">Αξιολογήσεις</p>
-      <h2 class="s-h2">Τι λένε <em>οι ασθενείς μας</em></h2>
+      <p class="eyebrow">Αξιολογήσεις</p>
+      <h2>Τι λένε <em>οι ασθενείς μας</em></h2>
     </div>
-    <div class="google-score">
-      <div class="gs-num">4.9</div>
-      <div class="gs-right">
-        <div class="gs-stars">★★★★★</div>
-        <div class="gs-label">214 αξιολογήσεις · Google</div>
+    <div class="gscore">
+      <div class="gscore-num">4.9</div>
+      <div class="gscore-right">
+        <div class="gscore-stars">★★★★★</div>
+        <div class="gscore-label">214 αξιολογήσεις · Google</div>
       </div>
     </div>
   </div>
-  <div class="reviews-grid">
-    <div class="rv-card r">
+  <div class="reviews-grid r">
+    <div class="rv">
       <div class="rv-stars">★★★★★</div>
-      <p class="rv-text">«Χειρουργήθηκα και στα δύο μάτια για καταρράκτη. Εξήγησε κάθε βήμα με ηρεμία. Βλέπω καλύτερα από ό,τι στα 30 μου — αποτέλεσμα εκπληκτικό.»</p>
+      <p class="rv-q">«Χειρουργήθηκα και στα δύο μάτια για καταρράκτη. Εξήγησε κάθε βήμα με ηρεμία. Βλέπω καλύτερα από ό,τι στα 30 μου.»</p>
       <div class="rv-name">Μαρία Κ.</div>
-      <div class="rv-detail">Χειρουργική Καταρράκτη · Μάρτιος 2025</div>
+      <div class="rv-meta">Χειρουργική Καταρράκτη · Μάρτιος 2025</div>
     </div>
-    <div class="rv-card r d1">
+    <div class="rv">
       <div class="rv-stars">★★★★★</div>
-      <p class="rv-text">«Χρόνια με γυαλιά, επιτέλους έκανα LASIK. Ανώδυνο, γρήγορο — την επόμενη μέρα έβλεπα 10/10. Θα τον συνιστούσα χωρίς δεύτερη σκέψη.»</p>
+      <p class="rv-q">«Χρόνια με γυαλιά, επιτέλους έκανα LASIK. Ανώδυνο, γρήγορο — την επόμενη μέρα έβλεπα 10/10. Θα τον συνιστούσα χωρίς δεύτερη σκέψη.»</p>
       <div class="rv-name">Νίκος Δ.</div>
-      <div class="rv-detail">LASIK · Ιανουάριος 2025</div>
+      <div class="rv-meta">LASIK · Ιανουάριος 2025</div>
     </div>
-    <div class="rv-card r d2">
+    <div class="rv">
       <div class="rv-stars">★★★★★</div>
-      <p class="rv-text">«Φέρνω τα παιδιά μου εδώ χρόνια. Υπομονετικός, ήρεμος με τα μικρά — δεν φοβούνται καθόλου. Σπάνιο εύρημα.»</p>
+      <p class="rv-q">«Φέρνω τα παιδιά μου εδώ χρόνια. Υπομονετικός, ήρεμος με τα μικρά — δεν φοβούνται καθόλου. Σπάνιο εύρημα.»</p>
       <div class="rv-name">Ελένη Σ.</div>
-      <div class="rv-detail">Παιδοφθαλμολογία · Φεβρουάριος 2025</div>
+      <div class="rv-meta">Παιδοφθαλμολογία · Φεβρουάριος 2025</div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section section--cream">
-  <p class="s-eyebrow r">Επικοινωνία</p>
-  <h2 class="s-h2 r d1">Κλείστε <em>ραντεβού</em></h2>
-  <p class="s-lead r d2">Απαντάμε εντός 2–4 ωρών κατά τις εργάσιμες ώρες.</p>
-  <div class="contact-wrap">
+<section id="contact" class="section section--off">
+  <p class="eyebrow r">Επικοινωνία</p>
+  <h2 class="r d1">Κλείστε <em>ραντεβού</em></h2>
+  <p class="lead r d2">Απαντάμε εντός 2–4 ωρών κατά τις εργάσιμες ώρες.</p>
+  <div class="contact-grid">
     <div class="r">
-      <p class="contact-info-h3">Στοιχεία ιατρείου</p>
-      <div class="ci-row">
-        <div class="ci-label">Διεύθυνση</div>
-        <div class="ci-val">Λεωφόρος Νίκης 48, 2ος όροφος<br>546 21 Θεσσαλονίκη</div>
-      </div>
-      <div class="ci-row">
-        <div class="ci-label">Τηλέφωνο</div>
-        <div class="ci-val"><a href="tel:+302310441200">2310 441 200</a></div>
-      </div>
-      <div class="ci-row">
-        <div class="ci-label">Email</div>
-        <div class="ci-val"><a href="mailto:info@dr-papadopoulos.gr">info@dr-papadopoulos.gr</a></div>
-      </div>
-      <div class="ci-row">
+      <p class="contact-info-title">Στοιχεία ιατρείου</p>
+      <div class="ci"><div class="ci-label">Διεύθυνση</div><div class="ci-val">Λεωφόρος Νίκης 48, 2ος όροφος<br>546 21 Θεσσαλονίκη</div></div>
+      <div class="ci"><div class="ci-label">Τηλέφωνο</div><div class="ci-val"><a href="tel:+302310441200">2310 441 200</a></div></div>
+      <div class="ci"><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:info@dr-papadopoulos.gr">info@dr-papadopoulos.gr</a></div></div>
+      <div class="ci">
         <div class="ci-label">Ωράριο</div>
         <div class="ci-val">
-          <table class="hours-tbl">
+          <table class="hrs">
             <tr id="hr1"><td>Δευτέρα</td><td>09:00–14:00 · 17:00–20:00</td></tr>
             <tr id="hr2"><td>Τρίτη</td><td>09:00–14:00</td></tr>
             <tr id="hr3"><td>Τετάρτη</td><td>09:00–14:00 · 17:00–20:00</td></tr>
@@ -756,33 +800,33 @@ footer{background:#111d1d;padding:64px 5% 32px}
           </table>
         </div>
       </div>
-      <div class="ci-row">
-        <div class="ci-label">Ασφαλιστικά</div>
-        <div class="ins-wrap">
-          <span class="ins">ΕΟΠΥΥ</span><span class="ins">AXA</span>
-          <span class="ins">Allianz</span><span class="ins">Eurolife</span>
-          <span class="ins">Interamerican</span><span class="ins">Generali</span><span class="ins">ING</span>
+      <div class="ci">
+        <div class="ci-label">Ασφαλιστικά Ταμεία</div>
+        <div class="ins-tags">
+          <span class="ins-tag">ΕΟΠΥΥ</span><span class="ins-tag">AXA</span>
+          <span class="ins-tag">Allianz</span><span class="ins-tag">Eurolife</span>
+          <span class="ins-tag">Interamerican</span><span class="ins-tag">Generali</span><span class="ins-tag">ING</span>
         </div>
       </div>
-      <div class="map-ph">
+      <div class="map-box">
         <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&q=72&fit=crop&auto=format" alt="Χάρτης">
         <div class="map-label">📍 Λεωφόρος Νίκης 48 · Θεσσαλονίκη</div>
       </div>
     </div>
     <div class="r d1">
-      <p class="form-h3">Φόρμα ραντεβού</p>
+      <p class="form-title">Φόρμα ραντεβού</p>
       <form id="apptForm" onsubmit="handleSubmit(event)">
-        <div class="f-row">
-          <div class="f-grp"><label class="f-lbl">Όνομα</label><input class="f-inp" type="text" placeholder="π.χ. Γιώργος" required></div>
-          <div class="f-grp"><label class="f-lbl">Επώνυμο</label><input class="f-inp" type="text" placeholder="π.χ. Αντωνίου" required></div>
+        <div class="f2">
+          <div class="fg"><label class="fl">Όνομα</label><input class="fi" type="text" placeholder="π.χ. Γιώργος" required></div>
+          <div class="fg"><label class="fl">Επώνυμο</label><input class="fi" type="text" placeholder="π.χ. Αντωνίου" required></div>
         </div>
-        <div class="f-row">
-          <div class="f-grp"><label class="f-lbl">Κινητό</label><input class="f-inp" type="tel" placeholder="69XXXXXXXX" required></div>
-          <div class="f-grp"><label class="f-lbl">Email</label><input class="f-inp" type="email" placeholder="email@example.com"></div>
+        <div class="f2">
+          <div class="fg"><label class="fl">Κινητό</label><input class="fi" type="tel" placeholder="69XXXXXXXX" required></div>
+          <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="email@example.com"></div>
         </div>
-        <div class="f-grp">
-          <label class="f-lbl">Λόγος επίσκεψης</label>
-          <select class="f-inp" required>
+        <div class="fg">
+          <label class="fl">Λόγος επίσκεψης</label>
+          <select class="fi" required>
             <option value="" disabled selected>Επιλέξτε υπηρεσία</option>
             <option>Γενικός οφθαλμολογικός έλεγχος</option>
             <option>Χειρουργική καταρράκτη</option>
@@ -793,26 +837,24 @@ footer{background:#111d1d;padding:64px 5% 32px}
             <option>Άλλο</option>
           </select>
         </div>
-        <div class="f-grp"><label class="f-lbl">Επιθυμητή ημερομηνία</label><input class="f-inp" type="date" id="apptDate"></div>
-        <div class="f-grp"><label class="f-lbl">Σχόλια (προαιρετικά)</label><textarea class="f-inp" placeholder="Περιγράψτε σύντομα..."></textarea></div>
-        <button type="submit" class="f-submit">Αποστολή Αιτήματος Ραντεβού</button>
-        <p class="f-note">Τα δεδομένα σας προστατεύονται βάσει GDPR.</p>
+        <div class="fg"><label class="fl">Επιθυμητή ημερομηνία</label><input class="fi" type="date" id="apptDate"></div>
+        <div class="fg"><label class="fl">Σχόλια (προαιρετικά)</label><textarea class="fi" placeholder="Περιγράψτε σύντομα..."></textarea></div>
+        <button type="submit" class="f-btn">Αποστολή Αιτήματος Ραντεβού</button>
+        <p class="f-note">Τα δεδομένα σας προστατεύονται βάσει GDPR. Δεν κοινοποιούνται σε τρίτους.</p>
       </form>
-      <div class="f-success" id="fSucc">
-        Το αίτημά σας ελήφθη. Θα επικοινωνήσουμε μαζί σας εντός 2–4 ωρών.
-      </div>
+      <div class="f-ok" id="fOk">Το αίτημά σας ελήφθη. Θα επικοινωνήσουμε μαζί σας εντός 2–4 ωρών για επιβεβαίωση.</div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
+  <div class="footer-top">
     <div>
-      <div class="f-brand">Δρ. Σταύρος Παπαδόπουλος<span>MD, PhD · Χειρουργός Οφθαλμίατρος · Θεσσαλονίκη</span></div>
-      <p class="f-about">Εξειδικευμένη οφθαλμολογική φροντίδα με γνώση που αποκτήθηκε στα κορυφαία κέντρα της Ευρώπης.</p>
+      <div class="footer-brand">Δρ. Σταύρος Παπαδόπουλος<span>MD, PhD · Χειρουργός Οφθαλμίατρος · Θεσσαλονίκη</span></div>
+      <p class="footer-about">Εξειδικευμένη οφθαλμολογική φροντίδα με γνώση αποκτημένη στα κορυφαία κέντρα της Ευρώπης — στη Θεσσαλονίκη.</p>
     </div>
-    <div class="f-col">
+    <div class="footer-col">
       <h4>Υπηρεσίες</h4>
       <ul>
         <li><a href="#">Χειρουργική Καταρράκτη</a></li>
@@ -822,7 +864,7 @@ footer{background:#111d1d;padding:64px 5% 32px}
         <li><a href="#">Παιδοφθαλμολογία</a></li>
       </ul>
     </div>
-    <div class="f-col">
+    <div class="footer-col">
       <h4>Πληροφορίες</h4>
       <ul>
         <li><a href="#">Βιογραφικό</a></li>
@@ -834,67 +876,55 @@ footer{background:#111d1d;padding:64px 5% 32px}
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Δρ. Σταύρος Παπαδόπουλος · ΑΦΜ: 123456789 · ΑΔΤ ΙΣΘ-2006-0841</span>
+    <span>© 2025 Δρ. Σταύρος Παπαδόπουλος · ΑΦΜ: 123456789 · ΑΔΤ ΙΣΘ-2006-0841 · Όλα τα δικαιώματα διατηρούνται</span>
     <a href="#">Πολιτική Απορρήτου</a>
   </div>
 </footer>
 
 <!-- COOKIE -->
-<div class="cookie" id="ck">
+<div class="cookie-bar" id="ck">
   <p class="cookie-txt">Χρησιμοποιούμε cookies για τη βελτίωση της εμπειρίας σας. <a href="#">Πολιτική Cookies</a></p>
   <div class="cookie-btns">
-    <button class="ck-btn ck-no" onclick="document.getElementById('ck').style.display='none'">Απόρριψη</button>
-    <button class="ck-btn ck-ok" onclick="document.getElementById('ck').style.display='none'">Αποδοχή</button>
+    <button class="ck ck-no" onclick="document.getElementById('ck').style.display='none'">Απόρριψη</button>
+    <button class="ck ck-ok" onclick="document.getElementById('ck').style.display='none'">Αποδοχή</button>
   </div>
 </div>
 
 <script>
-// Scroll reveals
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+// Reveals
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
 document.querySelectorAll('.r').forEach(el=>io.observe(el));
 
-// Counter animation
-function runCounter(el){
-  const target=parseFloat(el.dataset.target);
-  const suffix=el.dataset.suffix||'';
-  const dec=parseInt(el.dataset.decimal||0);
-  const dot=el.dataset.format==='dot';
-  const dur=1600,start=performance.now();
-  function tick(now){
-    const p=Math.min((now-start)/dur,1);
-    const ease=1-Math.pow(1-p,3);
-    const v=target*ease;
-    el.textContent=(dec>0?v.toFixed(dec):(dot?Math.round(v).toLocaleString('el-GR'):Math.floor(v)))+suffix;
+// Counters
+function runCount(el){
+  const t=parseFloat(el.dataset.target),suf=el.dataset.suffix||'',dec=parseInt(el.dataset.decimal||0),dot=el.dataset.format==='dot',dur=1600,s=performance.now();
+  (function tick(now){
+    const p=Math.min((now-s)/dur,1),e=1-Math.pow(1-p,3),v=t*e;
+    el.textContent=(dec?v.toFixed(dec):dot?Math.round(v).toLocaleString('el-GR'):Math.floor(v))+suf;
     if(p<1)requestAnimationFrame(tick);
-    else el.textContent=(dec>0?target.toFixed(dec):(dot?Math.round(target).toLocaleString('el-GR'):target))+suffix;
-  }
-  requestAnimationFrame(tick);
+    else el.textContent=(dec?t.toFixed(dec):dot?Math.round(t).toLocaleString('el-GR'):t)+suf;
+  })(s);
 }
-const cio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('[data-target]').forEach(runCounter);cio.unobserve(e.target)}})},{threshold:0.4});
-const hc=document.querySelector('.hero-card');if(hc)cio.observe(hc);
+const cio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('[data-target]').forEach(runCount);cio.unobserve(e.target)}})},{threshold:0.5});
+const hs=document.querySelector('.hero-stats');if(hs)cio.observe(hs);
 
-// Hours today
-const day=new Date().getDay();
-const row=document.getElementById('hr'+day);
+// Hours
+const d=new Date().getDay(),row=document.getElementById('hr'+d);
 if(row&&!row.classList.contains('closed'))row.classList.add('today');
 
-// Min date
+// Date min
 const di=document.getElementById('apptDate');
-if(di){const d=new Date();d.setDate(d.getDate()+1);di.min=d.toISOString().split('T')[0]}
+if(di){const n=new Date();n.setDate(n.getDate()+1);di.min=n.toISOString().split('T')[0]}
 
 // Form
-function handleSubmit(e){
-  e.preventDefault();
-  document.getElementById('apptForm').style.display='none';
-  document.getElementById('fSucc').style.display='block';
-}
+function handleSubmit(e){e.preventDefault();document.getElementById('apptForm').style.display='none';document.getElementById('fOk').style.display='block'}
 
-// Nav highlight
-const ss=document.querySelectorAll('section[id]'),nl=document.querySelectorAll('.nav-links a');
+// Nav active
+const ss=document.querySelectorAll('section[id]'),nl=document.querySelectorAll('.nav-menu a');
 window.addEventListener('scroll',()=>{
   let c='';ss.forEach(s=>{if(scrollY>=s.offsetTop-80)c=s.id});
-  nl.forEach(a=>a.style.color=a.href.endsWith('#'+c)?'var(--teal)':'var(--ink3)');
-});
+  nl.forEach(a=>{const active=a.getAttribute('href')==='#'+c;a.classList.toggle('active',active)});
+},{passive:true});
 </script>
 </body>
 </html>
