@@ -574,6 +574,55 @@
     .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
     .footer-amk { font-size: 12px; color: rgba(255,255,255,0.2); }
 
+    /* ── FAQ ── */
+    .faq-list {
+      margin-top: 52px;
+      border-top: 1px solid var(--border);
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--navy);
+      cursor: pointer;
+      text-align: left;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-icon {
+      font-size: 22px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.25s;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      padding-bottom: 24px;
+      max-width: 760px;
+    }
+
     /* ── SCROLL REVEAL ── */
     .reveal {
       opacity: 0;
@@ -616,6 +665,7 @@
       <li><a href="#about">Βιογραφικό</a></li>
       <li><a href="#services">Υπηρεσίες</a></li>
       <li><a href="#reviews">Αξιολογήσεις</a></li>
+      <li><a href="#faq">Ερωτήσεις</a></li>
       <li><a href="#contact" class="nav-cta">Ραντεβού</a></li>
     </ul>
   </div>
@@ -861,6 +911,80 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Συχνές ερωτήσεις</div>
+      <h2 class="section-h2">Αυτά ρωτάνε<br/>οι ασθενείς μας</h2>
+      <p class="section-sub">Απαντήσεις στις πιο συνηθισμένες ερωτήσεις για τις παθήσεις και τις επεμβάσεις.</p>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Πόσο επικίνδυνη είναι η επέμβαση καταρράκτη;
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Η χειρουργική καταρράκτη είναι μία από τις ασφαλέστερες επεμβάσεις στη σύγχρονη ιατρική. Διαρκεί περίπου 15 λεπτά, γίνεται με τοπική αναισθησία και ο ασθενής επιστρέφει στο σπίτι την ίδια ημέρα. Το ποσοστό επιτυχίας ξεπερνά το 98%. Τα ρίσκα υπάρχουν, όπως σε κάθε επέμβαση, αλλά είναι εξαιρετικά σπάνια όταν η παρέμβαση γίνεται από έμπειρο χειρουργό.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Πόσο καιρό χρειάζεται η ανάρρωση μετά την επέμβαση;
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Για την επέμβαση καταρράκτη, η βασική αποκατάσταση ολοκληρώνεται σε 1–2 εβδομάδες. Για το LASIK, οι περισσότεροι ασθενείς βλέπουν ξεκάθαρα από την επόμενη κιόλας μέρα. Στις περισσότερες περιπτώσεις δεν απαιτείται παρατεταμένη αποχή από την εργασία — μόνο προσοχή σε συγκεκριμένες δραστηριότητες για μερικές εβδομάδες.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Πώς καταλαβαίνω ότι έχω γλαύκωμα;
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Αυτό ακριβώς είναι το πρόβλημα με το γλαύκωμα: στα πρώιμα στάδια δεν έχει συμπτώματα. Η απώλεια όρασης συμβαίνει αργά, από την περιφέρεια, και συχνά δεν γίνεται αντιληπτή μέχρι να υπάρξει σοβαρή βλάβη. Γι' αυτό ακριβώς η τακτική οφθαλμολογική εξέταση — ιδιαίτερα για άτομα άνω των 40 ή με οικογενειακό ιστορικό — είναι καθοριστική για την έγκαιρη διάγνωση.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Είναι επώδυνη η επέμβαση laser;
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Όχι. Η διαδικασία LASIK/PRK γίνεται με αναισθητικές σταγόνες και διαρκεί μόνο λίγα λεπτά. Κατά τη διάρκεια της επέμβασης μπορεί να αισθανθείτε ελαφριά πίεση, αλλά όχι πόνο. Μετά, ορισμένοι ασθενείς αναφέρουν ελαφρά δυσφορία ή αίσθηση «άμμου» για μερικές ώρες, που υποχωρεί σύντομα με τα κατάλληλα φάρμακα.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Πόσο συχνά πρέπει να εξετάζω τα μάτια μου;
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Για ενήλικες χωρίς ήδη γνωστά προβλήματα, συνιστάται εξέταση κάθε 2 χρόνια. Για άτομα άνω των 60, με διαβήτη, γλαύκωμα, ιστορικό παθήσεων αμφιβληστροειδούς ή ισχυρά γυαλιά, η παρακολούθηση πρέπει να είναι ετήσια ή και πιο συχνή. Μη περιμένετε να εμφανιστούν συμπτώματα — πολλές σοβαρές παθήσεις εξελίσσονται αθόρυβα.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Καλύπτεται η επέμβαση καταρράκτη από ασφάλεια;
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Ναι, η χειρουργική καταρράκτη καλύπτεται από τον ΕΟΠΥΥ καθώς και από τα περισσότερα ιδιωτικά ασφαλιστικά ταμεία. Το ακριβές ποσοστό κάλυψης εξαρτάται από τον τύπο του ενδοφθάλμιου φακού και την ασφαλιστική σας σύμβαση. Στο ιατρείο μας σας ενημερώνουμε εξαρχής για το κόστος και τις επιλογές κάλυψης, χωρίς κρυφές χρεώσεις.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="section contact-bg" id="contact">
   <div class="section-inner">
@@ -943,6 +1067,14 @@
 </footer>
 
 <script>
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
